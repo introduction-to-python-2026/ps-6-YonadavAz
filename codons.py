@@ -1,4 +1,9 @@
-def create_codon_dict(file_path):
+def create_codon_dict(file_path: str):
+    """
+
+    :param file_path:
+    :return:
+    """
     path = {}
     # file = open(file_path)
     # rows = file.readlines()
@@ -6,8 +11,8 @@ def create_codon_dict(file_path):
     with open(file_path) as file:
         rows = file.readlines()
     for row in rows:
-        row.strip().split("/t")
-        path = create_codon_dict(row)
+        values = row.strip().split("\t")
+        path[values[0]] = values[2]
     return path
 
 if __name__ == "__main__":
